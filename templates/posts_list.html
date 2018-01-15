@@ -9,10 +9,19 @@
     <a href="{% url 'create_post' %}"><button>Новая статья</button></a>
 
     {% for post_m in post_massages %}
+
         <h5>{{ post_m.post_user }}</h5>
         <h3>{{ post_m.post_title }}</h3>
         <p>{{ post_m.post_text }}</p>
         <button>{{ post_m.post_likes }}</button>
+        <a href="{% url "create_comment" pk=post_m.id  %}"><button>Оставить коммент</button></a>
+        {% for comment in comments %}
+            {% if comment.comment_post == post_m %}
+                <p>{{ comment.comment_user }}{{ comment.comment_date }}</p>
+                <p>{{ comment.comment_text }}</p>
+            {% endif %}
+        {% endfor %}
+
     {% endfor %}
 
 {% endblock %}

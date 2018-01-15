@@ -29,7 +29,6 @@ urlpatterns = [
 
     url(r'^sign-up/$', views.BlogSignUp, name='blog-signup'),
 
-    url(r'^postcreate/$', views.CreatePost, name='create_post')
-
-
+    url(r'^postcreate/$', views.CreatePost, name='create_post'),
+    url(r'^commentcreate/(?P<pk>-?\d+)/$', views.CreateComment, name='create_comment'),
 ]

@@ -31,6 +31,7 @@ class Comment(models.Model):
     comment_text = models.CharField(null=True, blank=True, verbose_name='Комметарий', max_length=255)
     comment_post = models.ForeignKey(PostMessage, null=False)
     comment_date = models.DateTimeField(null=False, blank=False, default=datetime.now())
+    comment_user = models.ForeignKey(User, related_name='comment_massage')
 
     class Meta:
         verbose_name = 'Комметарий'
