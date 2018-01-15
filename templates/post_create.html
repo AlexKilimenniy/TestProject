@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    <title>Новая статья</title>
+{% endblock %}
+{% block body %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ post_form.as_p }}
+{#        {{ post_form.post_title }}#}
+{#        {{ post_form.post_text }}#}
+        <button type="submit">Запостить</button>
+    </form>
+
+{% endblock %}

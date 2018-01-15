@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    {% endblock %}
+</head>
+<body>
+    <h4>{{ user.name }}</h4><button id="log-out"><a href={% url 'sig-out' %}>Выйти</a></button>
+
+    {% block body %}
+    {% endblock %}
+
+    {% block js %}
+    {% endblock %}
+
+</body>
+</html>

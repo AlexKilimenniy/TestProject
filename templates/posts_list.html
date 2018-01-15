@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    <title>Блог</title>
+{% endblock %}
+{% block body %}
+
+    <h1>Hello!!!</h1>
+    <a href="{% url 'create_post' %}"><button>Новая статья</button></a>
+
+    {% for post_m in post_massages %}
+        <h5>{{ post_m.post_user }}</h5>
+        <h3>{{ post_m.post_title }}</h3>
+        <p>{{ post_m.post_text }}</p>
+        <button>{{ post_m.post_likes }}</button>
+    {% endfor %}
+
+{% endblock %}

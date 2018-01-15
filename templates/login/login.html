@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Авторизация</h2>
+    <button id="sign_up"><a href="{% url "blog-signup" %}">Зарегистрироваться</a> </button>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+
+        <button type="submit">Войти</button>
+    </form>
+
+</body>
+</html>
