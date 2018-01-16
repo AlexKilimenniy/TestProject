@@ -3,7 +3,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-# Create your models here.
 class PostMessage(models.Model):
     post_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_massage')
     post_title = models.CharField(null=False, blank=False, verbose_name='Заноловок статьи', max_length=20)
@@ -14,17 +13,10 @@ class PostMessage(models.Model):
     def __str__(self):
         return self.post_title
 
-    def foreignkey_user(self, db_field, request, **kwargs):
-        if db_field.name == 'post_user':
-            kwargs['initial'] = request.user.id
-        return super(PostMessage, self).foreignkey_user(
-            db_field, request, **kwargs
-        )
-
     class Meta:
         verbose_name = 'Пост'
         verbose_name_plural = 'Список постов'
-        # ordering = ['post_date', 'post_likes', 'post_title']
+        ordering = ['post_date', 'post_likes', 'post_title']
 
 
 class Comment(models.Model):

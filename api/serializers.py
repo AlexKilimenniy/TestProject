@@ -12,7 +12,6 @@ class PostMessageSerializer(serializers.ModelSerializer):
         fields = ('url', 'id', 'massage_header', 'massage_body', 'post_date', 'post_user', 'post_likes')
 
 
-# Serializers define the API representation.
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
