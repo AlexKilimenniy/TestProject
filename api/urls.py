@@ -15,27 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from blog import views
-from api import views as api_views
-from api.urls import router as api_route
+from rest_framework import routers
+
+from api import views
 
 from django.contrib.auth import views as auth
-
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'posts-massages', views.PostMessageViewSet)
+# router.register(r'posts-massages/(?P<pk>-?\d+)', views.PostMessageViewSet.get_post)
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', views.BlogHomePage, name='blog'),
-
-    url(r'^login/$', auth.login, {'template_name': 'login/login.html'}, name='sig-in'),
-    url(r'^logout/$', auth.logout, {'next_page': '/'}, name='sig-out'),
-    url(r'^blog/$', views.BlogHome, name='blog-home'),
-
-    url(r'^sign-up/$', views.BlogSignUp, name='blog-signup'),
-
-    url(r'^postcreate/$', views.CreatePost, name='create_post'),
-    url(r'^commentcreate/(?P<pk>-?\d+)/$', views.CreateComment, name='create_comment'),
-
-    # API
-    url(r'^api/', include(api_route.urls)),
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
-
