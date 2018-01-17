@@ -1,9 +1,7 @@
-from rest_framework import viewsets
-from blog.models import *
-from api.serializers import *
-
 from django.contrib.auth.models import User
-from rest_framework import routers, serializers, viewsets
+from rest_framework import viewsets
+
+from blog.api.serializers import *
 
 
 class UserViewSet(viewsets.ModelViewSet):
