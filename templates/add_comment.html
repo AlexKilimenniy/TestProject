@@ -5,7 +5,7 @@
 
     <form method="post">
         {% csrf_token %}
-        {{ post_form.as_p }}
+        {{ form.as_p }}
         <button type="submit">Запостить</button>
     </form>
 

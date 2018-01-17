@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
 
-    'api',
     'blog',
 ]
 
@@ -132,7 +131,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 print(MEDIA_ROOT)
 MEDIA_URL = '/media/'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/blog/'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [

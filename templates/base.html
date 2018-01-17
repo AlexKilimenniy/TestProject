@@ -7,7 +7,7 @@
     {% endblock %}
 </head>
 <body>
-    <h4>{{ user.name }}</h4><button id="log-out"><a href={% url 'sig-out' %}>Выйти</a></button>
+    <h4>{{ user.name }}</h4><button id="log-out"><a href={% url 'logout' %}>Выйти</a></button>
 
     {% block body %}
     {% endblock %}

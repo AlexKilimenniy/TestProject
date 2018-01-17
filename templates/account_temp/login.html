@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Авторизация</h2>
-    <button id="sign_up"><a href="{% url "blog-signup" %}">Зарегистрироваться</a> </button>
+    <button id="sign_up"><a href="{% url "signup" %}">Зарегистрироваться</a> </button>
     <form method="POST">
         {% csrf_token %}
         {{ form }}

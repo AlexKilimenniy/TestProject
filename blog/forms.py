@@ -16,12 +16,12 @@ class PostMessageForm(forms.ModelForm):
 
     class Meta:
         model = PostMessage
-        exclude = ('post_user', 'post_likes', 'post_date')
+        exclude = ('autor', 'likes', 'date')
 
 
 class CommentForm(forms.ModelForm):
-    comment_text = forms.CharField(max_length=255, required=True)
+    # text = forms.CharField(max_length=255, required=True)
 
     class Meta:
         model = Comment
-        exclude = ('comment_user', 'comment_date', 'comment_post')
+        exclude = ('user', 'date', 'post')
